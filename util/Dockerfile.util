@@ -1,0 +1,2 @@
+FROM kunzsoni/commonimage:latest
+COPY prepare_db.sql /tmp/.

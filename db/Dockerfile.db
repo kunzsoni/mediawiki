@@ -1,0 +1,4 @@
+FROM commonimage
+ARG USER=
+COPY prepare_db.sql /tmp/prepare_db.sql
+RUN /bin/bash -c "mysql_install_db --user=${USER} --basedir=/usr/ --ldata=/var/lib/mysql/ && /usr/bin/mysqld_safe --skip-grant-tables" 

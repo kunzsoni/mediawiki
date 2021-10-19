@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db
+  labels:
+    app: db 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: db 
+  template:
+    metadata:
+      labels:
+        app: db
+    spec:
+      containers:
+      - name: http
+        image: docker.io/kunzsoni/mediawikidb:latest
+        ports:
+        - containerPort: 3306 
+      imagePullSecrets:
+      - name: test-cred
